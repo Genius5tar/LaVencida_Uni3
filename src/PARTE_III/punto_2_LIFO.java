@@ -1,44 +1,39 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package PARTE_III;
 
 /**
  *
  * @author PEDRO DE HORTA
- * mi lista de la unidad 2 como una cola FIFO
+ * Mi lista de la unidad 2 como una cola que se comporta como LIFO.
  */
-
-public class punto_1_FIFO {
+public class punto_2_LIFO {
 
     private int[] elementos;
-    private int frente; // Índice del frente de la cola
     private int tamañoActual; // Tamaño actual de la cola
-    
+
     // Constructor
-    public punto_1_FIFO(int capacidad) {
+    public punto_2_LIFO(int capacidad) {
         elementos = new int[capacidad];
-        frente = 0;
         tamañoActual = 0;
     }
-    
+
     // Método para añadir un elemento al final de la cola
     public void encolar(int elemento) {
         if (tamañoActual < elementos.length) {
-            int indice = (frente + tamañoActual) % elementos.length;
-            elementos[indice] = elemento;
+            elementos[tamañoActual] = elemento;
             tamañoActual++;
         } else {
             System.out.println("La cola está llena, no se puede añadir más elementos.");
         }
     }
 
-    // Método para retirar el elemento del frente de la cola y devolverlo
+    // Método para retirar el elemento del final de la cola y devolverlo (comportamiento LIFO)
     public int desencolar() {
         if (tamañoActual > 0) {
-            int elemento = elementos[frente];
-            frente = (frente + 1) % elementos.length;
+            int elemento = elementos[tamañoActual - 1];
             tamañoActual--;
             return elemento;
         } else {
@@ -47,10 +42,10 @@ public class punto_1_FIFO {
         }
     }
 
-    // Método para consultar el elemento del frente de la cola sin retirarlo
+    // Método para consultar el último elemento añadido (cima de la cola en comportamiento LIFO) sin retirarlo
     public int consultarFrente() {
         if (tamañoActual > 0) {
-            return elementos[frente];
+            return elementos[tamañoActual - 1];
         } else {
             System.out.println("La cola está vacía, no hay ningún elemento para consultar.");
             return -1; // Valor de retorno por defecto si la cola está vacía
@@ -66,5 +61,4 @@ public class punto_1_FIFO {
     public boolean estaLlena() {
         return tamañoActual == elementos.length;
     }
-    
 }

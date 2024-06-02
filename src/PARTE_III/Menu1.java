@@ -23,7 +23,7 @@ public class Menu1 {
 
         int opcion;
         do {
-            System.out.println("\n--- Menú Principal---");
+            System.out.println("\n--- Menú Pila LIFO---");
             System.out.println("1. Encolar elemento");
             System.out.println("2. Desencolar elemento");
             System.out.println("3. Consultar elemento del frente");

@@ -2,26 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package PARTE_III;
+package PARTE_IV;
 
 /**
  *
  * @author PEDRO DE HORTA
+ * Clase para una pila personalizada.
  */
+public class pila_perzonalizada {
 
-public class punto_2_LIFO {
-    
-    private int[] elementos;
+    private Object[] elementos;
     private int tamañoActual;
 
     // Constructor
-    public punto_2_LIFO(int capacidad) {
-        elementos = new int[capacidad];
+    public pila_perzonalizada(int capacidad) {
+        elementos = new Object[capacidad];
         tamañoActual = 0;
     }
 
     // Método para añadir un elemento a la pila
-    public void Añadir(int elemento) {
+    public void Añadir(Object elemento) {
         if (tamañoActual < elementos.length) {
             elementos[tamañoActual] = elemento;
             tamañoActual++;
@@ -31,24 +31,24 @@ public class punto_2_LIFO {
     }
 
     // Método para retirar el elemento más recientemente agregado de la pila y devolverlo
-    public int Retirar() {
+    public Object Retirar() {
         if (tamañoActual > 0) {
-            int elemento = elementos[tamañoActual - 1];
+            Object elemento = elementos[tamañoActual - 1];
             tamañoActual--;
             return elemento;
         } else {
             System.out.println("La pila está vacía, no se puede retirar ningún elemento.");
-            return -1; // Valor de retorno por defecto si la pila está vacía
+            return null; // Valor de retorno por defecto si la pila está vacía
         }
     }
-    
-     // Método para ver el elemento en la cima de la pila sin retirarlo
-    public int reciente() {
+
+    // Método para ver el elemento en la cima de la pila sin retirarlo
+    public Object reciente() {
         if (tamañoActual > 0) {
             return elementos[tamañoActual - 1];
         } else {
             System.out.println("La pila está vacía, no hay ningún elemento en la cima.");
-            return -1; // Valor de retorno por defecto si la pila está vacía
+            return null; // Valor de retorno por defecto si la pila está vacía
         }
     }
 
@@ -62,4 +62,3 @@ public class punto_2_LIFO {
         return tamañoActual == elementos.length;
     }
 }
-
